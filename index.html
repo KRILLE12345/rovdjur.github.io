@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <title>Rovdjur</title>
+</head>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<body>
+    <div id = "wrapper">
+        <img id = "bg" src = "img/bg.jpg">
+        <i class="fas fa-bars" id = "bars"></i>
+        <nav> 
+            <button class = "scrollButton">Björn</button>
+            <button class = "scrollButton">Järv</button>
+            <button class = "scrollButton">Geting</button>
+            <button class = "scrollButton">Lodjur</button>
+            <button class = "scrollButton">Varg</button>
+        </nav>
+        <header>Rovdjur</header>
+        <div class = "content">
+            <div class = "animal" id = "bear">
+                <img class = "animalImg" src = "img/björn.png">
+                <h1>Björn</h1>
+                <div class = "animalinfo">
+                    <h3>Brunbjörnen tar sig en lång tupplur under vintern och vaknar lagom tills våren tittar fram. Under vintern passar den också på att föda sina ungar. En nyfödd björnunge väger bara några hekto och är lika liten som en ekorre!
+                    Björnen är en fridsam allätare. På våren gräver björnen fram mumsiga myror. Den äter gärna en massa blåbär och andra växter. Och ibland jagar den och äter kött, till exempel älg. </h3>
+                </div>
+            </div>
+            <div class = "animal" id = "wolverine">
+                <img class = "animalImg" src = "img/järv.png">
+                <h1>Järv</h1>
+                <div class = "animalinfo">
+                    <h3>Järven gillar mest sitt eget sällskap. Som en långbent grävling, med stora tassar och lång yvig svans, rör sig järven över stora områden i vår fjällkedja. De stora tassarna fungerar som smidiga snöskor när snön fryser till och det blir skare.</h3>
+                </div>            
+            </div>
+            <div class = "animal">
+                <img class = "animalImg" src = "img/geting.png">
+                <h1>Geting</h1>
+                <div class = "animalinfo">
+                    <h3>I skogen kan de mindre getingarna bygga sitt bo hängande från en gren i ett träd eller en buske men det vanligaste är att de gör det i en hålighet i jorden. Bålgetingen bygger däremot nästan alltid boet i ett ihåligt träd eller en stor fågelholk. Vissa insekter härmar getingar för att skrämma fåglar och andra som kan vilja äta upp dem.</h3>
+                </div>
+            </div>
+            <div class = "animal">
+                <img class = "animalImg" src = "img/lo.png">
+                <h1>Lodjur</h1>
+                <div class = "animalinfo">
+                    <h3>Lodjuret är Europas största vildkatt. Lodjuret har fina tofsar på öronen och en kort stubbig svans. Den gillar att käka rådjur och är expert på att smyga, det är nästan omöjligt att få syn på denna katt!</h3>
+                </div>
+            </div>
+            <div class = "animal">
+                <img class = "animalImg" src = "img/örn.png">
+                <h1>Örn</h1>
+                <div class = "animalinfo">
+                    <h3>Kungsörnen är en av de mest kända rovfåglarna. De är också en av de bästa flygarna, och kan flyga så fort som 190 km/h. Jättesnabbt! Och inte nog med det, när de dyker i luften så kan de nå hastigheter över 300 km/h!</h3>
+                </div>
+            </div>
+            <div class = "animal">
+                <img class = "animalImg" src = "img/varg.png">
+                <h1>Varg</h1>
+                <div class = "animalinfo">
+                    <h3>Vargarna lever i familjer och de är väldigt skygga. Vargarna är kända för sitt ylande. De ylar för att berätta för varandra var de är eller för att varna främmande vargar att området är upptaget. Om vargen käkat ben så blir bajset vitt!</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    fadeIn();
+    window.onscroll = function() {fadeIn()};
+
+    function fadeIn() {
+        $('.animal').each(function(i){
+            var objectBottom = $(this).position().top + $(this).outerHeight();
+            var windowBottom = $(window).scrollTop() + $(window).height();
+
+            if(windowBottom > objectBottom ){
+                $(this).css({"transition" : "opacity 2s", "opacity" : "1"});
+            }
+        }); 
+    }
+
+    $('#bars').click(function() {
+        $('nav').slideToggle();
+    });
+
+    $('.scrollButton').click(function() {
+        var oldThis = this;
+        $('.scrollButton').each(function(i){
+            if(oldThis == this) {
+                $('.animal').each(function(j){
+                    if(i == j) {
+                        var objectBottom = $(this).position().top;
+                        window.scroll({
+                            top: objectBottom,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+
+            }
+        });
+    })
+    
+</script>
+
+</html>
