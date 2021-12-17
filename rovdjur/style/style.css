@@ -1,0 +1,201 @@
+    
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+    "header header header"
+    "nav content .";
+    width: 100%;
+    padding: 0;
+    margin-left: 0;
+}
+
+
+button {
+    width: 100%;
+    height: 5vh;
+    font-size: 1.5vw;
+    background-color: #163808;
+    outline: none;
+    color:rgb(207, 207, 207);
+    transition: 0.5s;
+    border: none;
+}
+
+button:hover {
+    background-color: #245c0f;
+    transition: 0.5s;
+}
+
+nav {
+    top: 10vw;
+    position: fixed;
+    width: 12vw;
+    height: 25vh;
+    background-color: #163808;
+    opacity: 0.9;
+}
+
+header {
+    height: auto;
+    width: 100%;
+    background-color: #031805;
+    grid-area: header;
+    position: sticky;
+    padding-left: 5vw;
+    font-size: 6vw;
+    color: rgb(206, 206, 206);
+    user-select: none;
+}
+
+
+.animalinfo {
+    top: 30%;
+    position: absolute;
+    left: 40%;
+    width: 50%;
+    height: 80%;
+    overflow-y: auto;
+}
+
+h1 {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    margin-top: 0;
+    font-size: 5vw;
+    color: rgb(219, 219, 219);
+}
+
+h3 {
+    font-size: 1vw;
+    color: rgb(180, 180, 180);
+}
+
+.animal {
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+    left: 10%;
+    height: auto;
+    opacity: 0;
+    margin-top: 5vh;
+}
+
+#bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+.animalImg {
+    position: relative;
+    width: 20vw;
+    right: 1vw;
+    height: 20vw;
+    padding: 1vw;
+}
+
+#bars {
+    display: none;
+}
+
+.content {
+    grid-area: content;
+    background-color: #092a0c;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 1vw;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #b1b1b1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(75, 75, 75);
+    height: 0.1vw;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(31, 31, 31);
+  }
+
+  @media screen and (max-width: 800px) {
+    #wrapper {
+        grid-template-areas:
+        "header header header"
+        ". content nav";
+    }
+    header {
+        font-size: 10vw;
+        height: 10vh;
+        padding-left: 0vw;
+    }
+    nav {
+        position: absolute;
+        top: 20vh;
+        right: 0;
+        opacity: 1;
+        background-color: #28720d;
+        width: 30vw;
+        z-index: 1;
+        top: 10vh;
+    }
+    .scrollButton {
+        font-size: 3.5vw;
+    }
+    h3 {
+        font-size: 3vw;
+    }
+    .animalinfo {
+        top: 15%;
+    }
+    .animal {
+        height: 30vh;
+    }
+    #bars {
+        display: block;
+        position: absolute;
+        top: 1vh;
+        z-index: 1; 
+        right: 3vw;
+        font-size: 6vh;
+        color: rgb(12, 129, 2);
+    }
+  }
+  @media screen and (max-width: 600px) {
+    #wrapper {
+        grid-template-areas:
+        "header header header"
+        "content content content";
+    }
+    header {
+        height: 8vh;
+    }
+    nav {
+        top: 8vh;
+    }
+    .animalinfo {
+        top: 10%;
+    }
+    .animal {
+        height: 30vh;;
+    }
+  }
